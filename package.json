@@ -4,5 +4,15 @@
   "main": "index.js",
   "repository": "https://github.com/cmbirk/yeoman-es6-generator",
   "author": "Chris Birk <cmbirk@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "jest": "^24.1.0",
+    "yeoman-generator": "^3.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0"
+  }
 }
