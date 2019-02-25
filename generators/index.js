@@ -46,6 +46,7 @@ module.exports = class extends Generator {
       'eslint',
       'eslint-config-airbnb',
       'eslint-config-airbnb-base',
+      'eslint-plugin-import',
     ]
 
     await this.yarnInstall(devDependencies, {dev: true, silent: true})
