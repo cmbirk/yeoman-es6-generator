@@ -40,6 +40,7 @@ module.exports = class extends Generator {
     // const dependencies = []
 
     const devDependencies = [
+      '@babel/cli',
       '@babel/core',
       '@babel/preset-env',
       'babel-eslint',

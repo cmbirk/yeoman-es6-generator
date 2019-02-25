@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: [],
   extends: [
-    'airbnb',
+    'airbnb/base',
     'eslint:recommended',
   ],
   rules: {
