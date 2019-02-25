@@ -1,0 +1,8 @@
+{
+  "name": "yeoman-es6-generator",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/cmbirk/yeoman-es6-generator",
+  "author": "Chris Birk <cmbirk@gmail.com>",
+  "license": "MIT"
+}
