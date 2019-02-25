@@ -1,0 +1,1 @@
+# yeoman-es6-generator
