@@ -30,14 +30,14 @@ module.exports = class extends Generator {
           message: 'Project Description',
           default: '',
         },
-      ]);
+      ])
     }
   }
 
   async install() {
     this.log(chalk.green('Installing...'))
 
-    const dependencies = []
+    // const dependencies = []
 
     const devDependencies = [
       '@babel/core',
@@ -49,7 +49,7 @@ module.exports = class extends Generator {
       'eslint-plugin-import',
     ]
 
-    await this.yarnInstall(devDependencies, {dev: true, silent: true})
+    await this.yarnInstall(devDependencies, { dev: true, silent: true })
   }
 
   async writing() {
@@ -72,7 +72,7 @@ module.exports = class extends Generator {
       {
         name,
         description,
-      }
+      },
     )
 
     dotConfigs.map(dotConfig => this.fs.copy(
