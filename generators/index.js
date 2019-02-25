@@ -59,7 +59,6 @@ module.exports = class extends Generator {
     const { description } = this.answers
 
     const dotConfigs = [
-      'dockerignore',
       'editorconfig',
       'eslintrc.js',
       'eslintignore',

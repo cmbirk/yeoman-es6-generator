@@ -1,5 +1,5 @@
 {
-  "name": "yeoman-es6-generator",
+  "name": "generator-es6",
   "version": "0.0.1",
   "main": "index.js",
   "repository": "https://github.com/cmbirk/yeoman-es6-generator",
