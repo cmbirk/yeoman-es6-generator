@@ -5,6 +5,9 @@
   "repository": "https://github.com/cmbirk/yeoman-es6-generator",
   "author": "Chris Birk <cmbirk@gmail.com>",
   "license": "MIT",
+  "files": [
+    "generators"
+  ],
   "scripts": {
     "lint": "eslint ./generators --ext .js"
   },
