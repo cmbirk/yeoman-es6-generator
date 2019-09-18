@@ -6,8 +6,10 @@ module.exports = class extends Generator {
     super(args, opts)
     this.log(chalk.green('Initializing...'))
     this.option('quiet')
+    this.option('skip-package')
 
     this.quiet = this.options.quiet
+    this.skipPackage = this.options.skipPackage
   }
 
   async prompting() {
@@ -34,6 +36,41 @@ module.exports = class extends Generator {
     }
   }
 
+  async configuring() {
+    this.log(chalk.green('Writing template files...'))
+
+    const name = this.answers.name.trim().toLowerCase().replace(/ /g, '-')
+    const { description } = this.answers
+
+    const dotConfigs = [
+      'editorconfig',
+      'eslintrc.js',
+      'eslintignore',
+      'gitignore',
+    ]
+
+    if (!this.skipPackage) {
+      this.fs.copyTpl(
+        this.templatePath('_config/package.json'),
+        this.destinationPath('package.json'),
+        {
+          name,
+          description,
+        },
+      )
+    }
+
+    this.fs.copy(
+      this.templatePath('_config/babel.config.js'),
+      this.destinationPath('babel.config.js'),
+    )
+
+    dotConfigs.map(dotConfig => this.fs.copy(
+      this.templatePath(`_config/${dotConfig}`),
+      this.destinationPath(`.${dotConfig}`),
+    ))
+  }
+
   async install() {
     this.log(chalk.green('Installing...'))
 
@@ -51,38 +88,5 @@ module.exports = class extends Generator {
     ]
 
     await this.yarnInstall(devDependencies, { dev: true, silent: true })
-  }
-
-  async writing() {
-    this.log(chalk.green('Writing template files...'))
-
-    const name = this.answers.name.trim().toLowerCase().replace(/ /g, '-')
-    const { description } = this.answers
-
-    const dotConfigs = [
-      'editorconfig',
-      'eslintrc.js',
-      'eslintignore',
-      'gitignore',
-    ]
-
-    this.fs.copyTpl(
-      this.templatePath('_config/package.json'),
-      this.destinationPath('package.json'),
-      {
-        name,
-        description,
-      },
-    )
-
-    this.fs.copy(
-      this.templatePath('_config/babel.config.js'),
-      this.destinationPath('babel.config.js'),
-    )
-
-    dotConfigs.map(dotConfig => this.fs.copy(
-      this.templatePath(`_config/${dotConfig}`),
-      this.destinationPath(`.${dotConfig}`),
-    ))
   }
 }
