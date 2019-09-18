@@ -75,6 +75,11 @@ module.exports = class extends Generator {
       },
     )
 
+    this.fs.copy(
+      this.templatePath('_config/babel.config.js'),
+      this.destinationPath('babel.config.js'),
+    )
+
     dotConfigs.map(dotConfig => this.fs.copy(
       this.templatePath(`_config/${dotConfig}`),
       this.destinationPath(`.${dotConfig}`),
