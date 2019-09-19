@@ -1,3 +1,3 @@
 # yeoman-es6-generator
 
-![](https://github.com/cmbirk/yeoman-es6-generator/workflows/.github/workflows/Linting/badge.svg)
+![](https://github.com/cmbirk/yeoman-es6-generator/workflows/Linting/badge.svg)
